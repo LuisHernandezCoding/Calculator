@@ -1,0 +1,107 @@
+body {
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background: #1e1e1e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    font-family: monospace;
+}
+.framed {
+    background: #363638;
+    width: 350px;
+    padding: 15px;
+    margin: 0 50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 11px 8px black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+.header {
+    color: gray;
+    margin-top: 40px;
+    text-shadow: 0 0 12px black;
+    font-size: 30px;
+    font-weight: bolder;
+}
+#calculator {
+    height: 445px;
+    flex-direction: column;
+    gap: 10px;
+}
+#calculator .title {
+    font-size: -webkit-xxx-large;
+    font-weight: bolder;
+    text-transform: uppercase;
+    height: 40px;
+    width: 330px;
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(#f7ffb9, #7c0000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 3px black);
+}
+.display {
+    background: linear-gradient(#f2f3e9, #787c64);
+    color: #424242;
+    width: 310px;
+    padding: 0px 15px;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 40px;
+    border: 2px #282828 solid;
+}
+.buttons {
+    width: 100%;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.part {
+    display: flex;
+    padding: 0 5px;
+}
+button {
+    width: 81.5px;
+    height: 55px;
+    margin: 4px 2px;
+    font-size: larger;
+    font-weight: bolder;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    box-shadow: 0 0 4px 1px #000000;
+}
+.clear {
+    background: linear-gradient(#5272ff, #00327e);
+}
+.operator {
+    background: linear-gradient(#ffb395, #6c3200);
+}
+.number{
+    background: linear-gradient(#a3a3a3, #1e1e1e);
+}
+.result {
+    background: linear-gradient(#16cf00, #074200);
+    height: 118px;
+}
+.footer {
+    background: black;
+    width: 100%;
+    text-align: center;
+}
+.footer .text {
+    padding: 20px;
+    font-size: larger;
+    font-weight: 600;
+    letter-spacing: 4px;
+    word-spacing: 18px;
+}
