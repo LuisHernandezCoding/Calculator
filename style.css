@@ -1,3 +1,11 @@
+/* Custom font */
+@font-face {
+    font-family: 'MysticGate';
+    src: url('MysticGate.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     height: 100vh;
     margin: 0px;
@@ -9,12 +17,12 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    font-family: monospace;
+    font-family: 'mysticGate';
 }
 .framed {
-    background: #363638;
-    width: 350px;
-    padding: 15px;
+    background: #378264;
+    width: 400px;
+    padding: 25px;
     margin: 0 50px;
     border-radius: 10px;
     box-shadow: 1px 1px 11px 8px black;
@@ -24,26 +32,47 @@ body {
     justify-content: space-evenly;
 }
 .header {
-    color: gray;
+    color: #E37124;
     margin-top: 40px;
-    text-shadow: 0 0 12px black;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bolder;
 }
+.header .title {
+    background: linear-gradient(#ff8a3a, #e37124);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 3px black);
+}
+.logoFrame {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #363638;
+    box-shadow: 1px 1px 11px 8px black;
+}
+.logo {
+    background-image: url(./images/logo.png);
+    background-size: 112%;
+    background-repeat: no-repeat;
+    background-position: 300% -220%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 #calculator {
-    height: 445px;
     flex-direction: column;
     gap: 10px;
+    padding-bottom: 30px;
 }
 #calculator .title {
     font-size: -webkit-xxx-large;
     font-weight: bolder;
     text-transform: uppercase;
-    height: 40px;
     width: 330px;
     text-align: center;
-    padding: 10px;
-    background: linear-gradient(#f7ffb9, #7c0000);
+    background: linear-gradient(#ff8a3a, #e37124);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -53,14 +82,13 @@ body {
     background: linear-gradient(#f2f3e9, #787c64);
     color: #424242;
     width: 310px;
+    height: 50px;
     padding: 0px 15px;
     border-radius: 6px;
     text-align: right;
     font-size: 40px;
     border: 2px #282828 solid;
-}
-.buttons {
-    width: 100%;
+    font-family: monospace;
 }
 .column {
     display: flex;
@@ -79,22 +107,45 @@ button {
     border: 1px solid #000000;
     border-radius: 15px;
     box-shadow: 0 0 4px 1px #000000;
+    cursor: pointer;
+}
+button:active {
+    background: linear-gradient(#765243, #6c3200);
+    box-shadow: 0 0 1px 1px black;
+    cursor: pointer;
+}
+button.active {
+    background: linear-gradient(#765243, #6c3200);
+    box-shadow: 0 0 1px 1px black;
 }
 .clear {
-    background: linear-gradient(#5272ff, #00327e);
+    background: linear-gradient(#6CE0CD, #4c9d8f);
+}
+.clear:hover {
+    background: #4c9d8f;
 }
 .operator {
-    background: linear-gradient(#ffb395, #6c3200);
+    background: linear-gradient(#F27527, #b5571d);
+}
+button.operator:hover {
+    background: #b5571d;
 }
 .number{
-    background: linear-gradient(#a3a3a3, #1e1e1e);
+    background: linear-gradient(#CFC2B0, #9C9286);
+}
+button.number:hover {
+    background: linear-gradient(#9C9286, #9C9286);
 }
 .result {
-    background: linear-gradient(#16cf00, #074200);
+    background: linear-gradient(#538bac, #274150);
     height: 118px;
 }
+button.result:hover {
+    background: linear-gradient(#274150, #274150);
+}
 .footer {
-    background: black;
+    background: #274150;
+    color: #CFC2B0;
     width: 100%;
     text-align: center;
 }
@@ -104,4 +155,30 @@ button {
     font-weight: 600;
     letter-spacing: 4px;
     word-spacing: 18px;
+}
+
+
+.debugger ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.debugger li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+.debugger span {
+    font-family: monospace;
+    width: 110px;
+    height: 15px;
+    background: #1c1c1c;
+}
+.debugger.framed {
+    gap: 25px;
 }

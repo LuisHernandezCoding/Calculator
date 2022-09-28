@@ -10,56 +10,67 @@
 </head>
 <body>
     <div class="header framed">
-        <div class="logo"><img src="./images/logo.png"></div>
-        <div class="title">Dino Calculator</div>
+        <div class="logoFrame"><div class="logo"></div></div>
+        <div class="title">Mathematical Dinosaur</div>
     </div>
     <div id="calculator" class="framed">
         <div class="title">Calculator</div>
-        <div class="display">2000086957610</div>
+        <div class="display" id="display">2000086957610</div>
         <div class="buttons">
             <div class="part">
                 <div class="column">
-                    <button class="clear">C</button>
-                    <button class="number">7</button>
-                    <button class="number">4</button>
+                    <button class="clear" value="AC">AC</button>
+                    <button class="number" value="7">7</button>
+                    <button class="number" value="4">4</button>
                 </div>
                 <div class="column">
-                    <button class="operator">+/-</button>
-                    <button class="number">8</button>
-                    <button class="number">5</button>
+                    <button class="operator" value="%">+/-</button>
+                    <button class="number" value="8">8</button>
+                    <button class="number" value="5">5</button>
                 </div>
                 <div class="column">
-                    <button class="operator">/</button>
-                    <button class="number">9</button>
-                    <button class="number">6</button>
+                    <button class="operator" value="/">/</button>
+                    <button class="number" value="9">9</button>
+                    <button class="number" value="6">6</button>
                 </div>
                 <div class="column">
-                    <button class="operator">X</button>
-                    <button class="operator">-</button>
-                    <button class="operator">+</button>
+                    <button class="operator" value="*">X</button>
+                    <button class="operator" value="-">-</button>
+                    <button class="operator" value="+">+</button>
                 </div>
             </div>
             <div class="part">
                 <div class="column">
-                    <button class="number">1</button>
-                    <button class="number">0</button>
+                    <button class="number" value="1">1</button>
+                    <button class="number" value="0">0</button>
                 </div>
                 <div class="column">
-                    <button class="number">2</button>
-                    <button class="number">.</button>
+                    <button class="number" value="2">2</button>
+                    <button class="number" value=".">.</button>
                 </div>
                 <div class="column">
-                    <button class="number">3</button>
-                    <button class="number">DEL</button>
+                    <button class="number" value="3">3</button>
+                    <button class="number" value="DEL">DEL</button>
                 </div>
                 <div class="column">       
-                    <button class="result">=</button>                 
+                    <button class="result" value="=">=</button>                 
                 </div>
             </div>
         </div>
     </div>
+    <div class="debugger framed">
+        <ul>
+            <li>firstNumber: <span id="firstNumber"></span></li>
+            <li>secondNumber: <span id="secondNumber"></span></li>
+            <li>operator: <span id="operator"></span></li>
+            <li>result: <span id="result"></span></li>
+            <li>isOperatorClicked: <span id="isOperatorClicked"></span></li>
+            <li>isResultClicked: <span id="isResultClicked"></span></li>            
+        </ul>
+        <button value="updateSpans">Update Spans</button>
+    </div>
     <div class="footer">
         <div class="text">Copyright - LuisHernandezCoding - 2022</div>
-    </div>
+    </div>    
 </body>
 </html>
