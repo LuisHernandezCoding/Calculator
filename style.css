@@ -10,7 +10,10 @@ body {
     height: 100vh;
     margin: 0px;
     padding: 0px;
-    background: #1e1e1e;
+    background: url("./images/Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     display: flex;
     flex-direction: column;
@@ -18,6 +21,9 @@ body {
     align-items: center;
     gap: 30px;
     font-family: 'mysticGate';
+    /* CSS Language */
+    transition: all 0.5s ease;
+    
 }
 .framed {
     background: #378264;
@@ -181,4 +187,9 @@ button.result:hover {
 }
 .debugger.framed {
     gap: 25px;
+}
+.debugger button {
+    width: 100px;
+    color: white;
+    background: red;
 }
