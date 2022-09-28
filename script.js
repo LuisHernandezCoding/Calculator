@@ -37,17 +37,18 @@ let operator = ''
 let result = ''
 let isOperatorClicked = false
 let isResultClicked = false
+let escapeCounter = 0
 
 // Create debugger section
 let debuggerDiv = document.createElement('div')
 debuggerDiv.classList.add('debugger')
 debuggerDiv.classList.add('framed')
+debuggerDiv.classList.add('hidden')
 
-// set listener to open debugger and close debugger buttons
-openDebuggerButton.addEventListener('click', () => {
-    debuggerDiv.style.display = 'flex'
-    openDebuggerButton.parentElement.style.display = 'none'    
-})
+// function to toggle debugger
+function toggleDebugger() {
+    debuggerDiv.classList.toggle('hidden')
+}
 
 // create an html list to display variables
 let variablesList = document.createElement('ul')
@@ -102,17 +103,6 @@ let isResultClickedSpan = document.createElement('span')
 isResultClickedSpan.id = 'isResultClicked'
 isResultClickedLi.appendChild(isResultClickedSpan)
 variablesList.appendChild(isResultClickedLi)
-
-// add close debugger button
-let closeDebuggerButton = document.createElement('button')
-closeDebuggerButton.value = 'closeDebugger'
-closeDebuggerButton.textContent = 'close debugger'
-closeDebuggerButton.addEventListener('click', () => {
-    debuggerDiv.style.display = 'none'
-    openDebuggerButton.parentElement.style.display = 'flex'
-})
-debuggerDiv.appendChild(closeDebuggerButton)
-debuggerDiv.style.display = 'none'
 
 
 // append debugger to body before footer
@@ -170,6 +160,7 @@ buttons.forEach(button => {
             updateDisplay()
             // result button
         } else if (value === '=') {
+            escapeCounter = 0
             if (operator) {
                 if (firstNumber === 0 || firstNumber === '') {
                     if (operator === '/') {
@@ -202,6 +193,7 @@ buttons.forEach(button => {
             }
         // operator buttons
         } else if (value === '+' || value === '-' || value === '*' || value === '/' || value === '%') {
+            escapeCounter = 0
             if (firstNumber && secondNumber && operator && !isResultClicked) {
                 result = operate(Number(firstNumber), Number(secondNumber), operator)
                 if (result.length > 10) {
@@ -232,6 +224,7 @@ buttons.forEach(button => {
         }
         // delete button
         else if(value === 'DEL') {
+            escapeCounter = 0
             if (isResultClicked) {
                 result = result.slice(0, -1)
                 display.textContent = result
@@ -245,6 +238,7 @@ buttons.forEach(button => {
         }
         // number buttons
         else {
+            escapeCounter = 0
             // if result is clicked
             if (isResultClicked) {
                 secondNumber = ''
@@ -293,7 +287,13 @@ document.addEventListener('keydown', (e) => {
         key = 'DEL'
     }
     if (key === 'Escape') {
-        key = 'AC'
+        // check if key escape is pressed 3 times in a row to open debugger
+        escapeCounter++
+        if (escapeCounter >= 3) {
+            toggleDebugger()
+            escapeCounter = 0
+        }
+        else{ key = 'AC' }
     }
     if (key === 'Delete') {
         key = 'DEL'

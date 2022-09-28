@@ -193,3 +193,6 @@ button.result:hover {
     color: white;
     background: red;
 }
+.debugger.framed.hidden {
+    display: none;
+}
